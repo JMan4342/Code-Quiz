@@ -10,20 +10,12 @@ var optionD = document.querySelector("#optionD");
 var questionIndex = 0;
 var answerIndex = 0;
 var correctAnswerIndex = 0;
-// var lastQuestion = questions.length - 1;
 
 // Shows/hides opening message/button and first question
 startBtn.addEventListener("click", function (e) {
   startQuiz.classList.add("hidden");
   quiz.classList.remove("hidden");
   renderQuestion();
-  // checkAnswer();
-  // next()
-  // question.classList.remove("hidden");
-  // optionA.classList.remove("hidden");
-  // optionB.classList.remove("hidden");
-  // optionC.classList.remove("hidden");
-  // optionD.classList.remove("hidden");
 });
 
 // Starts and ends timer
@@ -40,7 +32,8 @@ startBtn.addEventListener("click", function setTime() {
     }
   }, 1000);
 });
-
+// questions[0].answers.a //"5"
+// questions[currentQuestion].correctAnswer === e.target.value 
 // Quiz questions set as arrays
 var questions = [
   {
@@ -51,7 +44,7 @@ var questions = [
       c: "2",
       d: "4",
     },
-    correctAnswer: "c",
+    correctAnswer: "2",
   },
   {
     question: "How many eyes do humans have?",
@@ -61,7 +54,7 @@ var questions = [
       c: "2",
       d: "4",
     },
-    correctAnswer: "a",
+    correctAnswer: "2",
   },
   {
     question: "How many toes do humans have?",
@@ -71,65 +64,80 @@ var questions = [
       c: "6",
       d: "10",
     },
-    correctAnswer: "d",
+    correctAnswer: "10",
   }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  // }
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  // }
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  // }
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  // }
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  // }
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  // }
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
   // {
-  //   question: ""
-  //   optionA: ""
-  //   optionB: ""
-  //   optionC: ""
-  //   optionD: ""
-  //   answer: ""
-  //
+  //   question: "How many toes do humans have?",
+  //   answers: {
+  //     a: "2",
+  //     b: "13",
+  //     c: "6",
+  //     d: "10",
+  //   },
+  //   correctAnswer: "d",
+  // }, 
 ];
+
 // Render questions and answers on page.
 function renderQuestion() {
   var question = questions[questionIndex];
@@ -141,39 +149,17 @@ function renderQuestion() {
   optionC.textContent = answers.answers.c;
   optionD.textContent = answers.answers.d;
 }
-
-// function checkAnswer() {
-  //   var correctAnswer = questions[correctAnswerIndex]
-  //   console.log("Hello")
-  //   if (userAnswers[0] === correctAnswer[correctAnswerIndex]) {
-    //     alert("Correct!")
-    //   }
-    
-    //   renderQuestion();
-    // }
     
 // Verify correct answer.
-var correctAnswer = questions[correctAnswerIndex];
-optionA.addEventListener("click", function checkAnswer() {
-  if (optionA == correctAnswer[0]) {
+function checkAnswer(e) {
+  // console.log(typeof e.target.innerHTML)
+  if (e.target.innerHTML === questions[questionIndex].correctAnswer) {
     alert("Correct!");
-  } else alert("Wrong!");
-});
-
-optionB.addEventListener("click", function checkAnswer() {
-  if (optionB == correctAnswer[0]) {
-    alert("Correct!");
-  } else alert("Wrong!");
-});
-
-optionC.addEventListener("click", function checkAnswer() {
-  if (optionC == correctAnswer[0]) {
-    alert("Correct!");
-  } else alert("Wrong!");
-});
-
-optionD.addEventListener("click", function checkAnswer() {
-  if (optionD == correctAnswer[0]) {
-    alert("Correct!");
-  } else alert("Wrong!");
-});
+    renderQuestion();
+} else alert("Wrong!");
+    renderQuestion();
+}
+optionA.addEventListener("click", checkAnswer);
+optionB.addEventListener("click", checkAnswer);
+optionC.addEventListener("click", checkAnswer);
+optionD.addEventListener("click", checkAnswer);
