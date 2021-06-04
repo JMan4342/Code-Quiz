@@ -32,8 +32,10 @@ startBtn.addEventListener("click", function setTime() {
     }
   }, 1000);
 });
+
 // questions[0].answers.a //"5"
-// questions[currentQuestion].correctAnswer === e.target.value 
+// questions[currentQuestion].correctAnswer === e.target.value
+
 // Quiz questions set as arrays
 var questions = [
   {
@@ -51,7 +53,7 @@ var questions = [
     answers: {
       a: "2",
       b: "3",
-      c: "2",
+      c: "10",
       d: "4",
     },
     correctAnswer: "2",
@@ -65,7 +67,7 @@ var questions = [
       d: "10",
     },
     correctAnswer: "10",
-  }, 
+  },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -75,7 +77,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -85,7 +87,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -95,7 +97,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -105,7 +107,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -115,7 +117,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -125,7 +127,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
   // {
   //   question: "How many toes do humans have?",
   //   answers: {
@@ -135,7 +137,7 @@ var questions = [
   //     d: "10",
   //   },
   //   correctAnswer: "d",
-  // }, 
+  // },
 ];
 
 // Render questions and answers on page.
@@ -149,17 +151,32 @@ function renderQuestion() {
   optionC.textContent = answers.answers.c;
   optionD.textContent = answers.answers.d;
 }
-    
+
 // Verify correct answer.
 function checkAnswer(e) {
-  // console.log(typeof e.target.innerHTML)
-  if (e.target.innerHTML === questions[questionIndex].correctAnswer) {
-    alert("Correct!");
+  {
+    // console.log(typeof e.target.innerHTML)
+    if (e.target.innerHTML === questions[questionIndex].correctAnswer) {
+      alert("Correct!");
+    } else alert("Wrong!");
+  }
+  // Cycles through question and answer arrays
+  questionIndex++;
+  answerIndex++;
+  if (questionIndex < questions.length) {
     renderQuestion();
-} else alert("Wrong!");
-    renderQuestion();
+  } else alert("Quiz Complete1");
 }
+
 optionA.addEventListener("click", checkAnswer);
 optionB.addEventListener("click", checkAnswer);
 optionC.addEventListener("click", checkAnswer);
 optionD.addEventListener("click", checkAnswer);
+
+// questionIndex++
+// answerIndex++
+// function nextQuestion(e) {
+// if (questionIndex < question.length) {renderQuestion();}
+// else
+//   return "Quiz Complete!"
+// }
