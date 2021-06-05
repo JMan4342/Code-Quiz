@@ -7,14 +7,12 @@
 
   <body>
     <header>
-        <highscore>
+        <score id = "scoreboard" class = "hidden">
+          <p>Current Score: <span id = "score">0</span></p>
             
-        </highscore>
-        <timer>
-            <p id = "timer">
-                Time Left:
-            </p>
-
+        </score>
+        <timer id = "clock" class = "hidden">
+            <p>Time Left: <span id = "timer">60</span></p> 
         </timer>
     </header>
 
@@ -29,6 +27,22 @@
               <button class = "btnOptionB" id = "optionB">Option B</button>
               <button class = "btnOptionC" id = "optionC">Option C</button>
               <button class = "btnOptionD" id = "optionD">Option D</button>
+        </div>
+        <div id = "completion1" class = "hidden">
+          <p>
+            Time Expired
+          </p>
+          <p>
+            You scored <span id = "score"></span> !
+          </p>
+        </div>
+        <div id = "completion2" class = "hidden">
+          <p>
+            Quiz Completed!
+          </p>
+          <p>
+            You scored <span id = "score"></span> !
+          </p>
         </div>
 
     </section>
