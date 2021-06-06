@@ -9,6 +9,8 @@ var optionA = document.querySelector("#optionA");
 var optionB = document.querySelector("#optionB");
 var optionC = document.querySelector("#optionC");
 var optionD = document.querySelector("#optionD");
+var correct = document.querySelector("#correct");
+var wrong = document.querySelector("#wrong");
 var score = document.querySelector("#score");
 var completion1 = document.querySelector("#completion1");
 var completion2 = document.querySelector("#completion2");
@@ -38,13 +40,11 @@ startBtn.addEventListener("click", function setTime() {
 
     if (secondsLeft === 0) {
       // Stops execution of timer
-      clearInterval(timerInterval);
       timeupMessage();
+      clearInterval(timerInterval);
     }
   }, 1000);
-
 });
-
 
 // Quiz questions set as arrays
 var questions = [
@@ -167,18 +167,23 @@ function renderQuestion() {
 function checkAnswer(e) {
   {
     if (e.target.innerHTML === questions[questionIndex].correctAnswer) {
-      alert("Correct!");
-      // Increase score for right answer.
+        correct.classList.remove("hidden");
+        setTimeout(function(){correct.classList.add("hidden");
+      }, 750);
+        // Increase score for right answer.
       currentScore++;
       score.textContent = currentScore;
-    } else {
-      alert("Wrong!");
-       {
+    } 
+    else {
+      wrong.classList.remove("hidden");
+      setTimeout(function(){wrong.classList.add("hidden");
+    }, 750);
+    {
         // Time penalty from wrong answer.
         secondsLeft -= 10;
         timer.textContent = secondsLeft;
-      }};
-      
+      }
+    }
   }
   // Cycles through question and answer arrays
   questionIndex++;
@@ -186,9 +191,9 @@ function checkAnswer(e) {
   if (questionIndex < questions.length) {
     renderQuestion();
   } else {
-    clearInterval(timerInterval);
     quizCompleteMessage();
-}
+    clearInterval(timerInterval);
+  }
 }
 
 optionA.addEventListener("click", checkAnswer);
@@ -197,19 +202,21 @@ optionC.addEventListener("click", checkAnswer);
 optionD.addEventListener("click", checkAnswer);
 
 // Time out completion message
-function timeupMessage () {
+function timeupMessage() {
   completion1.classList.remove("hidden");
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
   score.textContent = currentScore;
+  console.log(currentScore);
 }
 
 // Quiz completion message
-function quizCompleteMessage () {
+function quizCompleteMessage() {
   completion2.classList.remove("hidden");
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
   score.textContent = currentScore;
+  console.log(currentScore);
 }
