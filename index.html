@@ -29,21 +29,26 @@
               <button class = "btnOptionD" id = "optionD">Option D</button>
             <h3 id = "correct" class = "hidden">Correct</h3>
             <h3 id = "wrong" class = "hidden">Wrong</h3>
-        </div>
-        <div id = "completion1" class = "hidden">
-          <p>
-            Time Expired
-          </p>
-          <p>You scored: <span id = "score"></span></p>
-        </div>
-        <div id = "completion2" class = "hidden">
-          <p>
-            Quiz Completed!
-          </p>
-          <p>You scored: <span id = "score"></span></p>
-        </div>
-
     </section>
+
+    <form id= "completion1" class = "hidden">
+      <h2>
+        The quiz has completed!
+      </h2>
+      <p>
+        Your final score is: <span id = "score"></span>
+      </p>
+      <p>
+        Enter your initials for the high score list.
+      </p>
+      <p>
+        <label for="initials">Initials:</label>
+        <input id="initials" type="text" placeholder="Initials" />
+      </p>
+      <p>
+        <button>Submit</button>
+      </p>
+    </form>
     <script src ="script.js"></script>
   </body>
 

@@ -13,7 +13,7 @@ var correct = document.querySelector("#correct");
 var wrong = document.querySelector("#wrong");
 var score = document.querySelector("#score");
 var completion1 = document.querySelector("#completion1");
-var completion2 = document.querySelector("#completion2");
+// var completion2 = document.querySelector("#completion2");
 var questionIndex = 0;
 var answerIndex = 0;
 var correctAnswerIndex = 0;
@@ -40,7 +40,7 @@ startBtn.addEventListener("click", function setTime() {
 
     if (secondsLeft === 0) {
       // Stops execution of timer
-      timeupMessage();
+      quizCompleteMessage();
       clearInterval(timerInterval);
     }
   }, 1000);
@@ -202,18 +202,18 @@ optionC.addEventListener("click", checkAnswer);
 optionD.addEventListener("click", checkAnswer);
 
 // Time out completion message
-function timeupMessage() {
-  completion1.classList.remove("hidden");
-  quiz.classList.add("hidden");
-  scoreboard.classList.add("hidden");
-  clock.classList.add("hidden");
-  score.textContent = currentScore;
-  console.log(currentScore);
-}
+// function timeupMessage() {
+//   completion1.classList.remove("hidden");
+//   quiz.classList.add("hidden");
+//   scoreboard.classList.add("hidden");
+//   clock.classList.add("hidden");
+//   score.textContent = currentScore;
+//   console.log(currentScore);
+// }
 
 // Quiz completion message
 function quizCompleteMessage() {
-  completion2.classList.remove("hidden");
+  completion1.classList.remove("hidden");
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
