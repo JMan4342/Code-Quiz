@@ -13,6 +13,9 @@ var correct = document.querySelector("#correct");
 var wrong = document.querySelector("#wrong");
 var score = document.querySelector("#score");
 var completion1 = document.querySelector("#completion1");
+var form = document.querySelector("#form");
+var initialsField = document.querySelector("#initials");
+var submitButton = document.querySelector("#submit");
 // var completion2 = document.querySelector("#completion2");
 var questionIndex = 0;
 var answerIndex = 0;
@@ -217,6 +220,14 @@ function quizCompleteMessage() {
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
-  score.textContent = currentScore;
+  score.textContent = currentScore.value;
   console.log(currentScore);
 }
+
+let itemsArray = [localStorage.getItem("initials"), localStorage.getItem("finalScore")]
+
+// Save initials in local storage
+function saveResponses() {
+  localStorage.setItem("initials", initialsField.value);
+}
+submitButton.addEventListener("click", saveResponses);
