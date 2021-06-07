@@ -2,6 +2,9 @@ var startBtn = document.querySelector("#startBtn");
 var startQuiz = document.querySelector("#start-quiz");
 var quiz = document.querySelector("#quiz");
 var timer = document.querySelector("#timer");
+var highScore = document.querySelector("#highScore");
+var viewHighscore = document.querySelector("#viewHighscore");
+var highScoreList = document.querySelector("#highScoreList");
 var scoreboard = document.querySelector("#scoreboard");
 var clock = document.querySelector("#clock");
 var questionText = document.querySelector("#question-text");
@@ -20,11 +23,12 @@ var submitButton = document.querySelector("#submit");
 var questionIndex = 0;
 var answerIndex = 0;
 var correctAnswerIndex = 0;
-var currentScore = "";
+var currentScore = 0;
 
 // Shows/hides opening message/button and first question
 startBtn.addEventListener("click", function (e) {
   startQuiz.classList.add("hidden");
+  viewHighscore.classList.add("hidden");
   quiz.classList.remove("hidden");
   scoreboard.classList.remove("hidden");
   clock.classList.remove("hidden");
@@ -170,18 +174,19 @@ function renderQuestion() {
 function checkAnswer(e) {
   {
     if (e.target.innerHTML === questions[questionIndex].correctAnswer) {
-        correct.classList.remove("hidden");
-        setTimeout(function(){correct.classList.add("hidden");
+      correct.classList.remove("hidden");
+      setTimeout(function () {
+        correct.classList.add("hidden");
       }, 750);
-        // Increase score for right answer.
+      // Increase score for right answer.
       currentScore++;
       score.textContent = currentScore;
-    } 
-    else {
+    } else {
       wrong.classList.remove("hidden");
-      setTimeout(function(){wrong.classList.add("hidden");
-    }, 750);
-    {
+      setTimeout(function () {
+        wrong.classList.add("hidden");
+      }, 750);
+      {
         // Time penalty from wrong answer.
         secondsLeft -= 10;
         timer.textContent = secondsLeft;
@@ -204,30 +209,41 @@ optionB.addEventListener("click", checkAnswer);
 optionC.addEventListener("click", checkAnswer);
 optionD.addEventListener("click", checkAnswer);
 
-// Time out completion message
-// function timeupMessage() {
-//   completion1.classList.remove("hidden");
-//   quiz.classList.add("hidden");
-//   scoreboard.classList.add("hidden");
-//   clock.classList.add("hidden");
-//   score.textContent = currentScore;
-//   console.log(currentScore);
-// }
-
 // Quiz completion message
 function quizCompleteMessage() {
   completion1.classList.remove("hidden");
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
-  score.textContent = currentScore.value;
   console.log(currentScore);
 }
 
-let itemsArray = [localStorage.getItem("initials"), localStorage.getItem("finalScore")]
+localStorage.setItem("finalScore", currentScore.value);
+score.textContent = currentScore.value;
+
+let itemsArray = []
 
 // Save initials in local storage
 function saveResponses() {
-  localStorage.setItem("initials", initialsField.value);
+  localStorage.setItem("initials", JSON.stringify(initialsField.value));
 }
 submitButton.addEventListener("click", saveResponses);
+
+// Add initials and score from local storage to highscore list
+var listHighScore = function (finalScore) {
+  let object = JSON.parse(finalScore);
+  for (let i=0; i<object.length; i++) {
+    let li = document.createElement("LI");
+    let text = document.createTextNode(object[i].initials + object[i].finalScore);
+    li.appendChild(text);
+    highScoreList.appendChild(li);
+  }
+}
+
+// Click 'view highscore' to view list
+viewHighscore.addEventListener("click", function (e) {
+  highScoreList.classList.remove("hidden");
+  startQuiz.classList.add("hidden");
+  highScore.classList.add("hidden");
+}
+)
