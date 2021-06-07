@@ -19,6 +19,7 @@ var completion1 = document.querySelector("#completion1");
 var form = document.querySelector("#form");
 var initialsField = document.querySelector("#initials");
 var submitButton = document.querySelector("#submit");
+var finalScore = document.querySelector("#finalScore");
 // var completion2 = document.querySelector("#completion2");
 var questionIndex = 0;
 var answerIndex = 0;
@@ -215,12 +216,11 @@ function quizCompleteMessage() {
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
-  score.textContent = currentScore;
-  console.log(currentScore);
+  finalScore.textContent = currentScore;
+  localStorage.setItem("finalScoreStorage", JSON.stringify(finalScore.value));
+  // console.log(currentScore);
 }
 
-localStorage.setItem("finalScore", currentScore.value);
-score.textContent = currentScore.value;
 
 let itemsArray = []
 
@@ -231,11 +231,11 @@ function saveResponses() {
 submitButton.addEventListener("click", saveResponses);
 
 // Add initials and score from local storage to highscore list
-var listHighScore = function (finalScore) {
-  let object = JSON.parse(finalScore);
+var listHighScore = function (finalScoreStorage) {
+  let object = JSON.parse(finalScoreStorage);
   for (let i=0; i<object.length; i++) {
     let li = document.createElement("LI");
-    let text = document.createTextNode(object[i].initials + object[i].finalScore);
+    let text = document.createTextNode(object[i].initials + object[i].finalScoreStorage);
     li.appendChild(text);
     highScoreList.appendChild(li);
   }
