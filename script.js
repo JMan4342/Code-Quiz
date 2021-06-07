@@ -39,6 +39,7 @@ startBtn.addEventListener("click", function (e) {
 // Starts and ends timer
 var secondsLeft = "";
 var timerInterval = "";
+
 startBtn.addEventListener("click", function setTime() {
   // Sets interval in variable
   secondsLeft = 60;
@@ -217,34 +218,41 @@ function quizCompleteMessage() {
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
   finalScore.textContent = currentScore;
-  localStorage.setItem("finalScoreStorage", JSON.stringify(currentScore));
-  // console.log(currentScore);
 }
 
-
-let itemsArray = []
+let itemsArray = [];
 
 // Save initials in local storage
-function saveResponses() {
-  localStorage.setItem("initials", JSON.stringify(initialsField.value));
+
+function saveResponses(e) {
+  e.preventDefault();
+  const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  highscores.push({
+    initial: initialsField.value,
+    score: currentScore,
+  });
+  localStorage.setItem("highscores", JSON.stringify(highscores));
 }
+
 submitButton.addEventListener("click", saveResponses);
 
 // Add initials and score from local storage to highscore list
-var listHighScore = function (finalScoreStorage) {
-  let object = JSON.parse(finalScoreStorage);
-  for (let i=0; i<object.length; i++) {
-    let li = document.createElement("LI");
-    let text = document.createTextNode(object[i].initials + object[i].finalScoreStorage);
+var listHighScore = function () {
+  let object = JSON.parse(localStorage.getItem("highscores"));
+  for (let i = 0; i < object.length; i++) {
+    let li = document.createElement("li");
+    let text = document.createTextNode(
+      `${object[i].initial}: ${object[i].score}`
+    );
     li.appendChild(text);
     highScoreList.appendChild(li);
   }
-}
+};
 
 // Click 'view highscore' to view list
 viewHighscore.addEventListener("click", function (e) {
   highScoreList.classList.remove("hidden");
+  listHighScore();
   startQuiz.classList.add("hidden");
   highScore.classList.add("hidden");
-}
-)
+});

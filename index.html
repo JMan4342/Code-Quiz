@@ -7,55 +7,46 @@
 
   <body>
     <header>
-        <highScore id = "highScore">
-          <button id = "viewHighscore">
-            View High Scores
-          </button>
-          <ul id = "highScoreList" class = "hidden"></ul>
-        </highScore>  
-        <score id = "scoreboard" class = "hidden">
-          <p>Current Score: <span id = "score">0</span></p>
-            
-        </score>
-        <timer id = "clock" class = "hidden">
-            <p>Time Left: <span id = "timer">60</span></p> 
-        </timer>
+      <div id="highScore">
+        <button id="viewHighscore">View High Scores</button>
+      </div>
+      <div id="scoreboard" class="hidden">
+        <p>Current Score: <span id="score">0</span></p>
+      </div>
+      <div id="clock" class="hidden">
+        <p>Time Left: <span id="timer">60</span></p>
+      </div>
     </header>
 
     <section>
-        <div id = "start-quiz">
-            <h2>Start Quiz</h2>
-            <button id = "startBtn">Start Quiz</button>
-        </div>
-        <div id = "quiz" class = "hidden">
-            <h2 id = "question-text">Here is the JavaScript Quiz</h2>
-              <button class = "btnOptionA" id = "optionA">Option A</button>
-              <button class = "btnOptionB" id = "optionB">Option B</button>
-              <button class = "btnOptionC" id = "optionC">Option C</button>
-              <button class = "btnOptionD" id = "optionD">Option D</button>
-            <h3 id = "correct" class = "hidden">Correct</h3>
-            <h3 id = "wrong" class = "hidden">Wrong</h3>
+      <div id="start-quiz">
+        <h2>Start Quiz</h2>
+        <button id="startBtn">Start Quiz</button>
+      </div>
+      <div id="quiz" class="hidden">
+        <h2 id="question-text">Here is the JavaScript Quiz</h2>
+        <button class="btnOptionA" id="optionA">Option A</button>
+        <button class="btnOptionB" id="optionB">Option B</button>
+        <button class="btnOptionC" id="optionC">Option C</button>
+        <button class="btnOptionD" id="optionD">Option D</button>
+        <h3 id="correct" class="hidden">Correct</h3>
+        <h3 id="wrong" class="hidden">Wrong</h3>
+      </div>
     </section>
 
-    <form id= "completion1" class = "hidden">
-      <h2>
-        The quiz has completed!
-      </h2>
-      <p>
-        Your final score is: <span id = "finalScore"></span>
-      </p>
-      <p>
-        Enter your initials for the high score list.
-      </p>
+    <form id="completion1" class="hidden">
+      <h2>The quiz has completed!</h2>
+      <p>Your final score is: <span id="finalScore"></span></p>
+      <p>Enter your initials for the high score list.</p>
       <p>
         <label for="initials">Initials:</label>
         <input id="initials" type="text" placeholder="Initials" />
       </p>
       <p>
-        <button id = "submit">Submit</button>
+        <button id="submit">Submit</button>
       </p>
     </form>
-    <script src ="script.js"></script>
+    <ul id="highScoreList" class="hidden"></ul>
+    <script src="script.js"></script>
   </body>
-
 </html>
