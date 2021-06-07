@@ -215,6 +215,7 @@ function quizCompleteMessage() {
   quiz.classList.add("hidden");
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
+  score.textContent = currentScore;
   console.log(currentScore);
 }
 
