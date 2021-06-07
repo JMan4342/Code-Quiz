@@ -217,7 +217,7 @@ function quizCompleteMessage() {
   scoreboard.classList.add("hidden");
   clock.classList.add("hidden");
   finalScore.textContent = currentScore;
-  localStorage.setItem("finalScoreStorage", JSON.stringify(finalScore.value));
+  localStorage.setItem("finalScoreStorage", JSON.stringify(currentScore));
   // console.log(currentScore);
 }
 
