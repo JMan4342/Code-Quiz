@@ -20,7 +20,8 @@ var form = document.querySelector("#form");
 var initialsField = document.querySelector("#initials");
 var submitButton = document.querySelector("#submit");
 var finalScore = document.querySelector("#finalScore");
-// var completion2 = document.querySelector("#completion2");
+var clearHighScoreBtn = document.querySelector("#clearHighScoreBtn");
+var returnStartBtn = document.querySelector("#returnStartBtn");
 var questionIndex = 0;
 var answerIndex = 0;
 var correctAnswerIndex = 0;
@@ -251,8 +252,25 @@ var listHighScore = function () {
 
 // Click 'view highscore' to view list
 viewHighscore.addEventListener("click", function (e) {
+  viewHighscore.classList.add("hidden");
   highScoreList.classList.remove("hidden");
-  listHighScore();
+  clearHighScoreBtn.classList.remove("hidden");
+  returnStartBtn.classList.remove("hidden");
   startQuiz.classList.add("hidden");
   highScore.classList.add("hidden");
+  listHighScore();
 });
+
+clearHighScoreBtn.addEventListener("click", function (e) {
+  localStorage.clear();
+  highScoreList.removeChild(li);
+})
+
+returnStartBtn.addEventListener("click", function (e) {
+  viewHighscore.classList.remove("hidden");
+  highScoreList.classList.add("hidden");
+  clearHighScoreBtn.classList.add("hidden");
+  returnStartBtn.classList.add("hidden");
+  startQuiz.classList.remove("hidden");
+  highScore.classList.remove("hidden");
+})
