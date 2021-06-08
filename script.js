@@ -22,6 +22,7 @@ var submitButton = document.querySelector("#submit");
 var finalScore = document.querySelector("#finalScore");
 var clearHighScoreBtn = document.querySelector("#clearHighScoreBtn");
 var returnStartBtn = document.querySelector("#returnStartBtn");
+var restartBtn = document.querySelector("#restartBtn");
 var questionIndex = 0;
 var answerIndex = 0;
 var correctAnswerIndex = 0;
@@ -224,7 +225,6 @@ function quizCompleteMessage() {
 let itemsArray = [];
 
 // Save initials in local storage
-
 function saveResponses(e) {
   e.preventDefault();
   const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
@@ -235,7 +235,16 @@ function saveResponses(e) {
   localStorage.setItem("highscores", JSON.stringify(highscores));
 }
 
-submitButton.addEventListener("click", saveResponses);
+// Send initials and score to local storage, 
+submitButton.addEventListener("click", saveResponses)
+
+
+// Restart back to start page.
+restartBtn.addEventListener("click", function (e) {
+  completion1.classList.add("hidden");
+  startQuiz.classList.add("hidden");
+  viewHighscore.classList.add("hidden");
+});
 
 // Add initials and score from local storage to highscore list
 var listHighScore = function () {
