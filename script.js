@@ -48,7 +48,7 @@ startBtn.addEventListener("click", function setTime() {
     secondsLeft--;
     timer.textContent = secondsLeft;
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       // Stops execution of timer
       quizCompleteMessage();
       clearInterval(timerInterval);
@@ -59,105 +59,105 @@ startBtn.addEventListener("click", function setTime() {
 // Quiz questions set as arrays
 var questions = [
   {
-    question: "How many ears do humans have?",
+    question: "What are variables used for in JavaScript Programs?",
     answers: {
-      a: "5",
-      b: "3",
-      c: "2",
-      d: "4",
+      a: "To close your JavaScript code.",
+      b: "Storing numbers, dates, or other values.",
+      c: "To run a function.",
+      d: "None of the above",
     },
-    correctAnswer: "2",
+    correctAnswer: "Storing numbers, dates, or other values.",
   },
   {
-    question: "How many eyes do humans have?",
+    question: "What needs to be placed between <> in your HTML file to use JavaScript?",
     answers: {
-      a: "2",
-      b: "3",
-      c: "10",
-      d: "4",
+      a: "script",
+      b: "java",
+      c: "run",
+      d: "style",
     },
-    correctAnswer: "2",
+    correctAnswer: "script",
   },
   {
-    question: "How many toes do humans have?",
+    question: "What is the correct JavaScript syntax to write 'Hello World'?",
     answers: {
-      a: "2",
-      b: "13",
-      c: "6",
-      d: "10",
+      a: " println ('Hello World')",
+      b: "response.write('Hello World')",
+      c: "System.out.println('Hello World')",
+      d: "document.write('Hello World')",
     },
-    correctAnswer: "10",
+    correctAnswer: "document.write('Hello World')",
   },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
-  // {
-  //   question: "How many toes do humans have?",
-  //   answers: {
-  //     a: "2",
-  //     b: "13",
-  //     c: "6",
-  //     d: "10",
-  //   },
-  //   correctAnswer: "d",
-  // },
+  {
+    question: "Using _______ statement is how you test for a specific condition.",
+    answers: {
+      a: "For",
+      b: "If",
+      c: "Var",
+      d: "Switch",
+    },
+    correctAnswer: "If",
+  },
+  {
+    question: "To save an object in local storage, which syntax will you need to use?",
+    answers: {
+      a: "setItem(key, value)",
+      b: "save(key, value)",
+      c: "upload(key, value)",
+      d: "export(key, value)",
+    },
+    correctAnswer: "setItem(key, value)",
+  },
+  {
+    question: "How would you activate a function with a click of the mouse?",
+    answers: {
+      a: "var click = run.function",
+      b: "mouseover.addEventListener.function",
+      c: "Element.addEventListener('click', function)",
+      d: "Element.addEventListener('submit', function)",
+    },
+    correctAnswer: "Element.addEventListener('click', function)",
+  },
+  {
+    question: "What is considered a string data type?",
+    answers: {
+      a: "16",
+      b: "'16'",
+      c: "sixteen",
+      d: "function(16)",
+    },
+    correctAnswer: "'16'",
+  },
+  {
+    question: "A function is...",
+    answers: {
+      a: "needed for all JavaScript code.",
+      b: "is placed in your HTML file.",
+      c: "used to start all JavaScript code.",
+      d: "a block of code designed to perform a particular task.",
+    },
+    correctAnswer: "a block of code designed to perform a particular task.",
+  },
+  {
+    question: "What is JSON?",
+    answers: {
+      a: "A format for storing and transporting data.",
+      b: "A JavaScript DOM.",
+      c: "A third party API.",
+      d: "An older progamming language JavaScript is based off of.",
+    },
+    correctAnswer: "A format for storing and transporting data.",
+  },
+  {
+    question: "What is the correct syntax for an array?",
+    answers: {
+      a: "{}",
+      b: "()",
+      c: "[]",
+      d: "<>",
+    },
+    correctAnswer: "[]",
+  },
 ];
 
 // Render questions and answers on page.
