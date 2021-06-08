@@ -23,16 +23,52 @@ form {
 }
 
 #start-quiz {
-    display: inline-block;
-    /* flex-direction: column; */
+    display: inline-flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
-    /* width: 300px;
-    height: 200px; */
     border: solid;
     border-radius: 20px;
+    background-color: cornsilk;
 }
 
-section.div.h2 {
+#start-quiz h2 {
     margin: 10px;
+    font-size: 48px;
+}
+
+#start-quiz p {
+    font-weight: bolder;
+    font-size: 26px;
+}
+
+#start-quiz ul {
+    
+}
+
+#start-quiz li {
+    text-align: left;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+button {
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    font-size: 32px;
+}
+
+#viewHighscore {
+    font-size: 20px;
+}
+
+#clearHighScoreBtn,
+#returnStartBtn {
+    font-size: 18px;
+
 }

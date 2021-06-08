@@ -242,8 +242,8 @@ submitButton.addEventListener("click", saveResponses)
 // Restart back to start page.
 restartBtn.addEventListener("click", function (e) {
   completion1.classList.add("hidden");
-  startQuiz.classList.add("hidden");
-  viewHighscore.classList.add("hidden");
+  startQuiz.classList.remove("hidden");
+  viewHighscore.classList.remove("hidden");
 });
 
 // Add initials and score from local storage to highscore list
