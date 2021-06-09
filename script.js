@@ -4,6 +4,7 @@ var quiz = document.querySelector("#quiz");
 var timer = document.querySelector("#timer");
 var highScore = document.querySelector("#highScore");
 var viewHighscore = document.querySelector("#viewHighscore");
+var scoreTable = document.querySelector("#scoreTable");
 var highScoreList = document.querySelector("#highScoreList");
 var scoreboard = document.querySelector("#scoreboard");
 var clock = document.querySelector("#clock");
@@ -165,7 +166,6 @@ var questions = [
 function renderQuestion() {
   var question = questions[questionIndex];
   var answers = questions[answerIndex];
-  // console.log(question)
   questionText.textContent = question.question;
   optionA.textContent = answers.answers.a;
   optionB.textContent = answers.answers.b;
@@ -262,6 +262,7 @@ var listHighScore = function () {
 // Click 'view highscore' to view list
 viewHighscore.addEventListener("click", function (e) {
   viewHighscore.classList.add("hidden");
+  scoreTable.classList.remove("hidden");
   highScoreList.classList.remove("hidden");
   clearHighScoreBtn.classList.remove("hidden");
   returnStartBtn.classList.remove("hidden");
@@ -277,6 +278,7 @@ clearHighScoreBtn.addEventListener("click", function (e) {
 
 returnStartBtn.addEventListener("click", function (e) {
   viewHighscore.classList.remove("hidden");
+  scoreTable.classList.add("hidden");
   highScoreList.classList.add("hidden");
   clearHighScoreBtn.classList.add("hidden");
   returnStartBtn.classList.add("hidden");

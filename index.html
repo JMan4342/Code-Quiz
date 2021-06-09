@@ -26,17 +26,25 @@
           <li>There are 10 questions to answer.</li>
           <li>You have 60 seconds to answer the questions.</li>
           <li>For every correct answer, you score 1 point.</li>
-          <li>For every incorrect answer, 10 seconds will be removed from your time remaining.</li>
-          <li>Quiz ends when you complete all 10 questions or the timer reaches zero.</li>
+          <li>
+            For every incorrect answer, 10 seconds will be removed from your
+            time remaining.
+          </li>
+          <li>
+            Quiz ends when you complete all 10 questions or the timer reaches
+            zero.
+          </li>
         </ul>
         <button id="startBtn">Start Quiz</button>
       </div>
       <div id="quiz" class="hidden">
         <h2 id="question-text">Here is the JavaScript Quiz</h2>
-        <button class="btnOption" id="optionA">Option A</button>
-        <button class="btnOption" id="optionB">Option B</button>
-        <button class="btnOption" id="optionC">Option C</button>
-        <button class="btnOption" id="optionD">Option D</button>
+        <div>
+          <button class="btnOption" id="optionA">Option A</button>
+          <button class="btnOption" id="optionB">Option B</button>
+          <button class="btnOption" id="optionC">Option C</button>
+          <button class="btnOption" id="optionD">Option D</button>
+        </div>
         <h3 id="correct" class="hidden">Correct</h3>
         <h3 id="wrong" class="hidden">Wrong</h3>
       </div>
@@ -55,10 +63,13 @@
         <button id="restartBtn">Take Quiz Again</button>
       </p>
     </form>
-    <div>
+    <div id="scoreTable" class="hidden">
+      <h2>High Scores</h2>
       <ul id="highScoreList" class="hidden"></ul>
-      <button id = "clearHighScoreBtn" class ="hidden">Clear High Scores</button>
-      <button id = "returnStartBtn" class ="hidden">Return to Start</button>
+      <div>
+        <button id="clearHighScoreBtn" class="hidden">Clear High Scores</button>
+        <button id="returnStartBtn" class="hidden">Return to Start</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
