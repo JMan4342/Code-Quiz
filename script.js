@@ -273,7 +273,7 @@ viewHighscore.addEventListener("click", function (e) {
 
 clearHighScoreBtn.addEventListener("click", function (e) {
   localStorage.clear();
-  highScoreList.removeChild(li);
+  highScoreList.innerHTML = "";
 })
 
 returnStartBtn.addEventListener("click", function (e) {
