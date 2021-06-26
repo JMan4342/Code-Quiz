@@ -35,6 +35,13 @@ I utilized the following sites to assist in creating my JavaScript quiz.
 
 ## Application
 
-You can find my portfolio page at the following:
+You can find my JavaScript Quiz page at the following:
 
 * https://jman4342.github.io/Code-Quiz/
+
+---
+
+## Questions
+  If you have any questions, I can be reached on my GitHub at [JMan4342](https://github.com/JMan4342).
+
+  You can also reach me by email at manning.joseph.4342@gmail.com.
